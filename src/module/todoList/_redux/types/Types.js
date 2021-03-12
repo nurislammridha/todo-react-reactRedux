@@ -1,0 +1,7 @@
+export const TODO_TEXT_INPUT = "TODO_TEXT_INPUT";
+export const GET_TODO_LIST = "GET_TODO_LIST";
+export const MARK_AS_COMPLETED = "MARK_AS_COMPLETED";
+export const SET_MARK_AS = "SET_MARK_AS";
+export const IS_SUBMITTING = "IS_SUBMITTING";
+export const SET_EDIT_DATA = "SET_EDIT_DATA";
+export const CHANGE_EDIT_LIST = "CHANGE_EDIT_LIST";
