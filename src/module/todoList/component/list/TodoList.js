@@ -85,15 +85,15 @@ const TodoList = (props) => {
                                     <td>{item.task_name}</td>
                                     <td>{item.start_date}</td>
                                     <td>{item.end_date}</td>
-                                    {(item.status === 0) && (
+                                    {(item.status === false) && (
                                         <td className="text-danger">Running</td>
                                     )}
-                                    {(item.status === 1) && (
+                                    {(item.status === true) && (
                                         <td className="text-success">Completed</td>
                                     )}
 
                                     <td className="d-flex justify-content-center">
-                                        {(item.status === 0) && (
+                                        {(item.status === false) && (
                                             <>
                                                 <a href
                                                     className="btn btn-primary"
@@ -117,7 +117,7 @@ const TodoList = (props) => {
 
                                             </>
                                         )}
-                                        {(item.status === 1) && (
+                                        {(item.status === true) && (
                                             <>
                                                 <p className="invisible">No action</p>
                                             </>

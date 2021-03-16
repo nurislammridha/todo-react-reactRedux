@@ -13,7 +13,12 @@ export const todoTextInput = (name, value) => (dispatch) => {
 }
 
 export const getTodoList = () => (dispatch) => {
-    const url = `http://127.0.0.1:8000/api/todos`;
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos`;
+    // const url = `http://127.0.0.1:8000/api/todos`;
+    // const url = `${process.env.REACT_APP_API_URL}api/todos`;
+    // const url = `${process.env.REACT_APP_API_KEY}api/todos`;
+    console.log('url :>> ', url);
+    console.log('process.env :>> ', process.env);
     axios.get(url).then(
         (res) => {
             dispatch({ type: Types.GET_TODO_LIST, payload: res.data })
@@ -25,7 +30,8 @@ export const MarkAsComplete = (id) => (dispatch) => {
     const data = {
         status: 1
     };
-    const url = `http://127.0.0.1:8000/api/todos/${id}`
+    // const url = `http://127.0.0.1:8000/api/todos/${id}`
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos/${id}`
 
     axios.put(url, data).then(
         (res) => {
@@ -39,7 +45,8 @@ export const setFalseMarkas = () => (dispatch) => {
     dispatch({ type: Types.SET_MARK_AS, payload: false })
 }
 export const confirmDeleteTask = (id) => (dispatch) => {
-    const url = `http://127.0.0.1:8000/api/todos/${id}`;
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos/${id}`;
+    // const url = `http://127.0.0.1:8000/api/todos/${id}`;
     // showToast('error', "hello");
     // toast("Wow so easy!");
     // return 0;
@@ -73,7 +80,8 @@ export const SubmitTodoInput = (data) => (dispatch) => {
         return 0
     }
     dispatch({ type: Types.IS_SUBMITTING, payload: true })
-    const url = `http://127.0.0.1:8000/api/todos`;
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos`;
+    // const url = `http://127.0.0.1:8000/api/todos`;
     console.log('data :>> ', data);
     axios.post(url, data).then(
         (res) => {
@@ -91,7 +99,8 @@ export const SubmitTodoInput = (data) => (dispatch) => {
 
 }
 export const setEditTodoList = (id) => (dispatch) => {
-    const url = `http://127.0.0.1:8000/api/todos/${id}`
+    // const url = `http://127.0.0.1:8000/api/todos/${id}`
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos/${id}`
     axios.get(url).then(
         (res) => {
             console.log('res.data :>> ', res.data);
@@ -123,7 +132,7 @@ export const updateTodoList = (data, id) => async (dispatch) => {
         showToast('success', "End Date should be greater");
         return 0
     }
-    const url = `http://127.0.0.1:8000/api/todos/${id}`
+    const url = `https://goldenharvest-api.herokuapp.com/api/todos/${id}`
     await axios.put(url, data).then(
         (res) => {
             if (res.status) {
